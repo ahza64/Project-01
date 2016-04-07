@@ -32,7 +32,7 @@ var db = require('./models');
      message: "Hello"
    });
  });
- //get all projects
+ // get all projects
  app.get('/api/project', function(req, res){
    console.log("get request ", req);
    res.json(req);
