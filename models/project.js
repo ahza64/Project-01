@@ -6,8 +6,9 @@ var projectSchema = new Schema({
   owner: String,
   desc: String,
   img: String,
-  member: [worker]
+  member: [workerSchema]
 });
+
 
 var Project = mongoose.model('Project', profileSchema);
 module.exports = Project;
