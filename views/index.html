@@ -7,12 +7,12 @@
     <title>Project Builder</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../public/styles/styles.css">
+    <link rel="stylesheet" href="/styles/styles.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
 
-    <script src="../public/scripts/app.js"></script>
+    <script src="/scripts/app.js"></script>
   </head>
   <body>
     <div class="jumbotron">
@@ -41,24 +41,27 @@
         <button type="submit" class="btn btn-default">Create Project</button>
       </form>
 <!-- end project form -->
+    <div class="test">
+
+    </div>
     </div>
 <!-- start project section -->
     <div id='projectTarget'>
     <script id='projectTemplate' type="text/x-handlebars-template">
-      <!-- {{#each quotes}} -->
+
       <hr>
       <p>
         -{{owner}}
         -{{lead}}
+        -{{message}}
 
-        <!-- {{quote}} -->
-         <!-- -{{name}} -->
+
         <image width="50" height="50" src="{{image}}" frameborder="0">
       <!--  <iframe width="200" height="200" src="{{link}}" frameborder="0"></iframe>
           <br> -->
           <button type="button" name="button" class="deleteBtn btn btn-danger" data-id={{_id}}>Delete</button>
       </p>
-      <!-- {{/each}} -->
+    
     </script>
     </div>
 <!-- end project section -->
