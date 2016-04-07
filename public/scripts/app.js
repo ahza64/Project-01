@@ -1,13 +1,20 @@
 console.log("JS is definitely working");
 
-$(document).ready(function() {
-  console.log('app.js loaded!');
 
-$('#newProjectForm').on('submit', function(e){
-  e.preventDefault();
-  console.log('guuuud');
-  console.log('serialized info from Project form ', $(this).serialize());
-});
+
+$(document).ready(function() {
+
+
+  $('#newProjectForm').on('submit', function(e){
+    e.preventDefault();
+    var source = $('#projectTemplate').html();
+    var template = Handlebars.compile(source);
+    var $data = $(this).serialize();
+    var html = template($data);
+    console.log('serialized info from Project form ', $data);
+    $('#projectTarget').append(html);
+    $(this).trigger("reset");
+  });//end newProjectForm
 
 
 

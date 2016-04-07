@@ -42,5 +42,25 @@
       </form>
 <!-- end project form -->
     </div>
+<!-- start project section -->
+    <div id='projectTarget'>
+    <script id='projectTemplate' type="text/x-handlebars-template">
+      <!-- {{#each quotes}} -->
+      <hr>
+      <p>
+        -{{owner}}
+        -{{lead}}
+
+        <!-- {{quote}} -->
+         <!-- -{{name}} -->
+        <image width="50" height="50" src="{{image}}" frameborder="0">
+      <!--  <iframe width="200" height="200" src="{{link}}" frameborder="0"></iframe>
+          <br> -->
+          <button type="button" name="button" class="deleteBtn btn btn-danger" data-id={{_id}}>Delete</button>
+      </p>
+      <!-- {{/each}} -->
+    </script>
+    </div>
+<!-- end project section -->
   </body>
 </html>
