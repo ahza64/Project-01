@@ -33,14 +33,23 @@ var db = require('./models');
    });
  });
  // get all projects
- app.get('/api/project', function(req, res){
+ app.get('/api/projects', function(req, res){
    console.log("get request ", req);
-   res.json(req);
+   var seedSampleProject = db.Project;
+   seedSampleProject.find(function(err, projects){
+     res.json(projects);
+   });
  });
  //create a new project
- app.post('/api/project', function(req, res){
-   console.log("server operational ", req);
-   res.json(req);
+ app.post('/api/projects', function postProject(req, res){
+   var newProject = new db.Project(req.body);
+   newProject.save(function(err, project){
+     if(err){
+       return console.log("project save err ", err);
+     }
+     console.log(project);
+     res.json(project);
+   });
  });
 
 
