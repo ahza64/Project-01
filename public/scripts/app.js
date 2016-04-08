@@ -4,14 +4,23 @@
 $(document).ready(function() {
   console.log("JS is definitely working, and document is loaded");
 
+// rendering all projects on the page
+  $.ajax({
+    method: "GET",
+    url: "api/projects",
+    success: projectsLoadSuccess,
+    error: projectsLoadError
+  });
+
+// adding a new project
 $('#newProjectForm').on('submit', function(e){
     e.preventDefault();
     $.ajax({
-      method: "GET",
+      method: "POST",
       url: "api/projects",
-      // data: $(this).serialize(),
-      success: projectSuccess,
-      error: projectError
+      data: $(this).serialize(),
+      success: projectPostSuccess,
+      error: projectPostError
     });
     $(this).trigger("reset");
   });//end newProjectForm
@@ -22,11 +31,11 @@ $('#newProjectForm').on('submit', function(e){
 
 });//end of doc.ready
 // ajax functions
-function projectSuccess(json){
-  renderHandlebars(json);
+function projectsLoadSuccess(json){
+  json.forEach(renderHandlebars);
 }
 
-function projectError(err){
+function projectsLoadError(err){
   console.log("projectError return ", err);
 }
 

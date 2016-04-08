@@ -7,6 +7,13 @@ var sampleProject = [
     desc: "Sample Description",
     lead: "Sample Lead",
     img: "http://i.imgur.com/7b3g13s.jpg",
+  },
+  {
+    name: "Sample Project2",
+    owner: "Sample Owner2",
+    desc: "Sample Description2",
+    lead: "Sample Lead2",
+    img: "http://i.imgur.com/7b3g13s.jpg",
   }
 ];
 
