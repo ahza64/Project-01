@@ -8,6 +8,7 @@ var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: true}));
 
 var db = require('./models');
+var controllers = require('./controllers');
 
 /**********
  * ROUTES *
@@ -33,14 +34,8 @@ var db = require('./models');
    });
  });
  // get all projects
- app.get('/api/projects', function(req, res){
-   console.log("get request ", db.Project);
-   var seedSampleProject = db.Project;
-   seedSampleProject.findOne(function(err, projects){
-     res.json(projects);
-   });
- });
- //create a new project
+ app.get('/api/projects', controllers.projects.show);
+ 
  app.post('/api/projects', function postProject(req, res){
    var newProject = new db.Project(req.body);
    newProject.save(function(err, project){

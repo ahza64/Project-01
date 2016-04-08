@@ -1,8 +1,8 @@
-console.log("JS is definitely working");
 
 
 
 $(document).ready(function() {
+  console.log("JS is definitely working, and document is loaded");
 
 $('#newProjectForm').on('submit', function(e){
     e.preventDefault();
@@ -31,11 +31,11 @@ function projectError(err){
 }
 
 // handlebar controls
-function renderHandlebars(project) {
-  console.log('rendering project:', project);
+function renderHandlebars(json) {
+  console.log('rendering project:', json);
   var gettingHTML = $('#projectTemplate').html();
   var projectTemplate = Handlebars.compile(gettingHTML);
 
-  var html = projectTemplate(project);
+  var html = projectTemplate(json);
   $('#projectTarget').append(html);
 }
