@@ -4,15 +4,6 @@ console.log("JS is definitely working");
 
 $(document).ready(function() {
 
-
-  // e.preventDefault();
-  // $.ajax({
-  //   method: "GET",
-  //   url: "api/sanity",
-  //   success: sanitySuccess,
-  //   error: sanityError
-  // });
-
 $('#newProjectForm').on('submit', function(e){
     e.preventDefault();
     $.ajax({
@@ -22,15 +13,15 @@ $('#newProjectForm').on('submit', function(e){
       success: projectSuccess,
       error: projectError
     });
-
-
     $(this).trigger("reset");
-});//end newProjectForm
+  });//end newProjectForm
+
+
 
 
 
 });//end of doc.ready
-
+// ajax functions
 function projectSuccess(json){
   renderHandlebars(json);
 }
@@ -39,17 +30,7 @@ function projectError(err){
   console.log("projectError return ", err);
 }
 
-function sanitySuccess(json){
-  // $('.test').append(json.message);
-  console.log("ajax success ", json);
-  renderHandlebars(json);
-}
-
-
-function sanityError(err){
-  console.log("ajax err");
-}
-
+// handlebar controls
 function renderHandlebars(project) {
   console.log('rendering project:', project);
   var gettingHTML = $('#projectTemplate').html();
