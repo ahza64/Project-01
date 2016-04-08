@@ -14,25 +14,16 @@ function index(req, res) {
 
 function create(req, res) {
   console.log("body", req.body);
-  //from solutions, works
-  // var genres = req.body.genres.split(',').map(function(item) { return item.trim(); } );
-  // req.body.genres = genres;
-  //
-  // db.Album.create(req.body, function(err, album) {
-  //   if (err) { console.log('error', err); }
-  //   console.log("This is from db to server ",album);
-  //   res.json(album);
-  // });
-  var newAlbum = new db.Album(req.body);
-   newAlbum.save(function(err, album){
-     if (err){
-       return console.log("album save error "+ err);
-     }else{
-       console.log(album);
-       res.json(album);
-     }
-   });
+  var newProject = new db.Project(req.body);
+  newProject.save(function(err, project){
+    if(err){
+      return console.log("project save err ", err);
+    }
+    console.log(project);
+    res.json(project);
+  });
 }
+
 function show(req, res) {
     console.log("get request ", db.Project);
     var seedSampleProject = db.Project;
@@ -40,6 +31,7 @@ function show(req, res) {
       res.json(projects);
     });
 }
+
 function destroy(req, res) {
   // FILL ME IN !
 }

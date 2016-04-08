@@ -36,7 +36,15 @@ function projectsLoadSuccess(json){
 }
 
 function projectsLoadError(err){
-  console.log("projectError return ", err);
+  console.log("projectLosdError return ", err);
+}
+
+function projectPostSuccess(json){
+  renderHandlebars(json);
+}
+
+function projectPostError(err){
+  console.log("projectPostError return ", err);
 }
 
 // handlebar controls
