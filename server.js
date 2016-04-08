@@ -27,12 +27,6 @@ var controllers = require('./controllers');
 /*
  * API Endpoints
  */
- //testing
- app.get('/api/sanity', function(req, res){
-   res.json({
-     message: "Hello"
-   });
- });
  // get all projects
  app.get('/api/projects', controllers.projects.show);
 

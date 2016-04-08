@@ -48,18 +48,29 @@
 <!-- start project section -->
     <script id='projectTemplate' type="text/x-handlebars-template">
       <div id={{_id}}>
-      <hr>
-      <p>
-        -{{owner}}
-        -{{lead}}
-        -{{message}}
+        <hr>
+        <p>
+          -{{owner}}
+          -{{lead}}
+          -{{message}}
 
 
-        <image width="50" height="50" src="{{image}}" frameborder="0">
-      <!--  <iframe width="200" height="200" src="{{link}}" frameborder="0"></iframe>
-          <br> -->
-          <button type="button" name="button" class="deleteBtn btn btn-danger" data-id={{_id}}>Delete</button>
-      </p>
+          <image width="50" height="50" src="{{image}}" frameborder="0">
+        <!--  <iframe width="200" height="200" src="{{link}}" frameborder="0"></iframe>
+            <br> -->
+            <button type="button" name="button" class="deleteBtn btn btn-danger" data-id={{_id}}>Delete</button>
+        </p>
+        <form class="form-inline" id="addCharacterForm" data-id={{_id}}>
+          <div class="form-group">
+            <input type="text" class="form-control" name="name" placeholder="Member Name">
+          </div>
+          <button type="submit" class="btn btn-primary">Add Member</button>
+        </form>
+        <div id='memberTarget'>
+        <script id='memberTemplate' type="text/x-handlebars-template">
+          
+        </script>
+      </div>
     </div>
     </script>
     <div id='projectTarget'>

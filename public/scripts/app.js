@@ -42,6 +42,7 @@ $(document).ready(function() {
 
 
 });//end of doc.ready
+
 // ajax functions
 function projectsLoadSuccess(json){
   json.forEach(renderHandlebars);
