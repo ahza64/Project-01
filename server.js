@@ -34,9 +34,9 @@ var db = require('./models');
  });
  // get all projects
  app.get('/api/projects', function(req, res){
-   console.log("get request ", req);
+   console.log("get request ", db.Project);
    var seedSampleProject = db.Project;
-   seedSampleProject.find(function(err, projects){
+   seedSampleProject.findOne(function(err, projects){
      res.json(projects);
    });
  });

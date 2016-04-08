@@ -18,7 +18,7 @@ $('#newProjectForm').on('submit', function(e){
     $.ajax({
       method: "GET",
       url: "api/projects",
-      data: $(this).serialize(),
+      // data: $(this).serialize(),
       success: projectSuccess,
       error: projectError
     });
