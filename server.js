@@ -37,17 +37,8 @@ var controllers = require('./controllers');
  app.get('/api/projects', controllers.projects.show);
 
  app.post('/api/projects', controllers.projects.create);
- // function postProject(req, res){
- //   var newProject = new db.Project(req.body);
- //   newProject.save(function(err, project){
- //     if(err){
- //       return console.log("project save err ", err);
- //     }
- //     console.log(project);
- //     res.json(project);
- //   });
- // }
 
+ app.delete('/api/projects/:id', controllers.projects.destroy);
 
 
 app.listen(process.env.PORT || 3000, function () {

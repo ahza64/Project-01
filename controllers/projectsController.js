@@ -33,8 +33,15 @@ function show(req, res) {
 }
 
 function destroy(req, res) {
-  // FILL ME IN !
+  console.log("project delete", req.params);
+  //find the _id of this delete
+  var projectId = req.params.id;
+  var projectData = db.Project;
+  projectData.findOneAndRemove({_id: projectId}, function(err, deletedProject){
+    res.sendStatus(204);
+  });
 }
+
 function update(req, res) {
   // FILL ME IN !
 }

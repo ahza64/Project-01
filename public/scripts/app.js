@@ -13,7 +13,7 @@ $(document).ready(function() {
   });
 
 // adding a new project
-$('#newProjectForm').on('submit', function(e){
+  $('#newProjectForm').on('submit', function(e){
     e.preventDefault();
     $.ajax({
       method: "POST",
@@ -23,7 +23,19 @@ $('#newProjectForm').on('submit', function(e){
       error: projectPostError
     });
     $(this).trigger("reset");
-  });//end newProjectForm
+  });//end new Project
+
+// deleting a project
+  $('#projectTarget').on('click', '.deleteBtn', function(){
+    console.log('clicked delete button to', '/api/projects/'+$(this).attr('data-id'));
+    var $deleteButton = $(this).attr('data-id');
+    $.ajax({
+      method: 'DELETE',
+      url: '/api/projects/'+$(this).attr('data-id'),
+      success: deleteProjectSuccess($deleteButton),
+      error: deleteProjectError
+    });
+  });//end delete project
 
 
 
@@ -45,6 +57,15 @@ function projectPostSuccess(json){
 
 function projectPostError(err){
   console.log("projectPostError return ", err);
+}
+
+function deleteProjectSuccess($deleteButton){
+  console.log("this is the delete", $deleteButton);
+  $('#'+$deleteButton).remove();
+}
+
+function deleteProjectError(err){
+  console.log("deleteProjectError ", err);
 }
 
 // handlebar controls
