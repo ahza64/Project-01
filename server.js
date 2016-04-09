@@ -28,8 +28,9 @@ var controllers = require('./controllers');
  * API Endpoints
  */
  // get all projects
- app.get('/api/projects', controllers.projects.show);
+ app.get('/api/projects', controllers.projects.index);
  app.post('/api/projects', controllers.projects.create);
+ app.get('/api/projects/:id', controllers.projects.show);
  app.delete('/api/projects/:id', controllers.projects.destroy);
 
  app.post('/api/projects/:project_id/members', controllers.members.create);

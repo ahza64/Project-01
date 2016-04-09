@@ -41,11 +41,12 @@ $(document).ready(function() {
   $('#projectTarget').on('submit', '#newMemberForm', function(e){
     // console.log($(this).serialize());
     e.preventDefault();
+    var $memberSubmit = $(this).attr('data-id');
     $.ajax({
       method: "POST",
       url: "api/projects/"+$(this).attr('data-id')+"/members",
       data: $(this).serialize(),
-      success: memberPostSuccess,
+      success: memberPostSuccess($memberSubmit),
       error: memberPostError
     });
     $(this).trigger("reset");
@@ -81,11 +82,17 @@ function deleteProjectError(err){
   console.log("deleteProjectError ", err);
 }
 
-function memberPostSuccess(json){
-  console.log("membersPostSuccess is successful", json);
-  // $('#projectTarget').append('<p>'+json.member[0].task+'</p>');
-  renderHandlebarsMembers(json);
+function memberPostSuccess($memberSubmit){
+  console.log("membersPostSuccess is successful", $memberSubmit);
+    console.log('retrieved album w/ id: ', $memberSubmit);
+    $.get('/api/projects/' + $memberSubmit, function(data) {
+        // remove the current instance of the album from the page
+        $('#' + $memberSubmit).remove();
+        // re-render it with the new album data (including songs)
+        renderHandlebars(data);
+    });
 }
+
 
 function memberPostError(err){
   console.log("memberPostError ", err);
@@ -98,14 +105,4 @@ function renderHandlebars(json) {
 
   var html = projectTemplate(json);
   $('#projectTarget').append(html);
-}
-
-function renderHandlebarsMembers(json){
-  var projectId = json._id;
-  var gettingHTML = $('#projectTemplate').html();
-  var projectTemplate = Handlebars.compile(gettingHTML);
-
-  var html = projectTemplate(json);
-  console.log("member handle bars ", html);
-  $('#'+projectId).append(html);
 }

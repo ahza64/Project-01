@@ -1,7 +1,10 @@
 var db = require('../models');
 // GET /api/albums
 function index(req, res) {
-
+  var dataProjects = db.Project;
+  dataProjects.find(function(err, projects){
+    res.json(projects);
+  });
 }
 
 function create(req, res) {
@@ -18,10 +21,6 @@ function create(req, res) {
 
 function show(req, res) {
     // console.log("get request ", db.Project);
-    var seedSampleProject = db.Project;
-    seedSampleProject.find(function(err, projects){
-      res.json(projects);
-    });
 }
 
 function destroy(req, res) {
