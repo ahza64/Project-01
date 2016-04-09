@@ -23,11 +23,15 @@ function create(req, res){
 
       // save the book with the new character
       // send the entire book back
-    });
-  }
+  });
+}
 
 function show(req, res){
-
+  db.Project.findById(req.params.projectId, function(err, foundProject) {
+    if(err) { console.log('albumsController.show error', err); }
+    console.log('albumsController.show responding with', foundProject);
+    res.json(foundProject);
+   });
 }
 
 function destroy(req, res){

@@ -83,8 +83,8 @@ function deleteProjectError(err){
 }
 
 function memberPostSuccess($memberSubmit){
-  console.log("membersPostSuccess is successful", $memberSubmit);
-    console.log('retrieved album w/ id: ', $memberSubmit);
+  // console.log("membersPostSuccess is successful", $memberSubmit);
+    // console.log('retrieved album w/ id: ', $memberSubmit);
     $.get('/api/projects/' + $memberSubmit, function(data) {
         // remove the current instance of the album from the page
         $('#' + $memberSubmit).remove();
