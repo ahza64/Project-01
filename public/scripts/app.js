@@ -40,6 +40,7 @@ $(document).ready(function() {
 // add member
   $('#newMemberForm').on('submit', function(e){
     e.preventDefault();
+    console.log("member submit ajax");
     $.ajax({
       method: "POST",
       url: "api/projects/"+$(this).attr('data-id')+"/members",
