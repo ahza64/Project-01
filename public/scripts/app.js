@@ -72,7 +72,6 @@ function projectPostError(err){
 }
 
 function deleteProjectSuccess($deleteButton){
-  console.log("this is the delete", $deleteButton);
   $('#'+$deleteButton).remove();
 }
 
@@ -81,7 +80,7 @@ function deleteProjectError(err){
 }
 
 function memberPostSuccess(json){
-
+  console.log("membersPostSuccess is successful")
 }
 
 function memberPostError(err){
