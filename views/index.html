@@ -69,9 +69,15 @@
           </div>
           <button type="submit" class="btn btn-primary">Add Member</button>
         </form>
+        <p>
+        <div id={{_id}}>
           {{#each member}}
-            <<<<{{task}}
+          <p>
+            {{task}}
+          </p>
           {{/each}}
+        </div>
+        </p>
       </div>
     </script>
     <div id='projectTarget'>
