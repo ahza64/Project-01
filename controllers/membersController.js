@@ -2,8 +2,8 @@ var db = require('../models');
 
 function create(req, res){
   var projectId = req.params.project_id;
-  console.log("there should be something here ", db.Project);
-  console.log(projectId);
+  // console.log("there should be something here ", db.Project);
+  // console.log(projectId);
   db.Project.findById(projectId)
    //  .populate('author')
     .exec(function(err, foundProject){
@@ -13,10 +13,10 @@ function create(req, res){
       }else if(!foundProject){
         res.status(404).json({error: 'There is no project id ' + projectId});
       }else{
-        console.log("-----", req.body);
+        // console.log("-----", req.body);
         foundProject.member.push(req.body);
         foundProject.save();
-        console.log(foundProject);
+        // console.log(foundProject);
         res.status(201).json(foundProject);
       }
       // push req.body into characters array
@@ -27,7 +27,8 @@ function create(req, res){
 }
 
 function show(req, res){
-  db.Project.findById(req.params.projectId, function(err, foundProject) {
+  console.log('show is working');
+  db.Project.findById(req.params.project_id, function(err, foundProject) {
     if(err) { console.log('albumsController.show error', err); }
     console.log('albumsController.show responding with', foundProject);
     res.json(foundProject);

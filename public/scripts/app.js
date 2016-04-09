@@ -85,12 +85,26 @@ function deleteProjectError(err){
 function memberPostSuccess($memberSubmit){
   // console.log("membersPostSuccess is successful", $memberSubmit);
     // console.log('retrieved album w/ id: ', $memberSubmit);
-    $.get('/api/projects/' + $memberSubmit, function(data) {
-        // remove the current instance of the album from the page
-        $('#' + $memberSubmit).remove();
-        // re-render it with the new album data (including songs)
-        renderHandlebars(data);
+    $.ajax({
+      method: "GET",
+      url: "api/projects/"+$memberSubmit,
+      success: thememberPostSuccess,
+      error: thememberPostError
     });
+    function thememberPostSuccess(data){
+      console.log("member success");
+      $('#' + $memberSubmit).remove();
+      renderHandlebars(data);
+    }
+    function thememberPostError(err){
+      console.log("member error ", err);
+    }
+    // $.get('/api/projects/' + $memberSubmit, function(data) {
+        // remove the current instance of the album from the page
+        // $('#' + $memberSubmit).remove();
+        // re-render it with the new album data (including songs)
+        // renderHandlebars(data);
+    // });
 }
 
 
