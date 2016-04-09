@@ -32,7 +32,7 @@ var controllers = require('./controllers');
  app.post('/api/projects', controllers.projects.create);
  app.delete('/api/projects/:id', controllers.projects.destroy);
 
- 
+ app.post('/api/projects/:id/members', controllers.members.create);
 
 
 app.listen(process.env.PORT || 3000, function () {
