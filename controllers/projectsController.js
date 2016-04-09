@@ -17,7 +17,7 @@ function create(req, res) {
 }
 
 function show(req, res) {
-    console.log("get request ", db.Project);
+    // console.log("get request ", db.Project);
     var seedSampleProject = db.Project;
     seedSampleProject.find(function(err, projects){
       res.json(projects);

@@ -38,9 +38,9 @@ $(document).ready(function() {
   });//end delete project
 
 // add member
-  $('#newMemberForm').on('submit', function(e){
-    e.preventDefault();
+  $('#projectTarget').on('submit', '#newMemberForm', function(e){
     console.log("member submit ajax");
+    e.preventDefault();
     $.ajax({
       method: "POST",
       url: "api/projects/"+$(this).attr('data-id')+"/members",
@@ -88,7 +88,7 @@ function memberPostError(err){
 }
 // handlebar controls
 function renderHandlebars(json) {
-  console.log('rendering project:', json);
+  // console.log('rendering project:', json);
   var gettingHTML = $('#projectTemplate').html();
   var projectTemplate = Handlebars.compile(gettingHTML);
 
