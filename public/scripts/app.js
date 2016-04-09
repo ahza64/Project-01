@@ -39,7 +39,7 @@ $(document).ready(function() {
 
 // add member
   $('#projectTarget').on('submit', '#newMemberForm', function(e){
-    // console.log("member submit ajax");
+    console.log($(this).serialize());
     e.preventDefault();
     $.ajax({
       method: "POST",
@@ -48,6 +48,7 @@ $(document).ready(function() {
       success: memberPostSuccess,
       error: memberPostError
     });
+    $(this).trigger("reset");
   });
 
 
@@ -64,6 +65,7 @@ function projectsLoadError(err){
 }
 
 function projectPostSuccess(json){
+  console.log("project ", json);
   renderHandlebars(json);
 }
 
@@ -80,7 +82,8 @@ function deleteProjectError(err){
 }
 
 function memberPostSuccess(json){
-  console.log("membersPostSuccess is successful");
+  console.log("membersPostSuccess is successful", json);
+
 }
 
 function memberPostError(err){
