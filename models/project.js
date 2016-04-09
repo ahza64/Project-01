@@ -1,5 +1,7 @@
 var mongoose = require('mongoose'),
-  Schema = mongoose.Schema;
+  Schema = mongoose.Schema,
+  Member = require("./member.js");
+
 
 
 
@@ -9,7 +11,7 @@ var projectSchema = new Schema({
   desc: String,
   lead: String,
   img: String,
-  // member: [workerSchema]
+  member: [Member.schema]
 });
 
 

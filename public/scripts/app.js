@@ -39,7 +39,7 @@ $(document).ready(function() {
 
 // add member
   $('#projectTarget').on('submit', '#newMemberForm', function(e){
-    console.log("member submit ajax");
+    // console.log("member submit ajax");
     e.preventDefault();
     $.ajax({
       method: "POST",
