@@ -29,10 +29,10 @@ var controllers = require('./controllers');
  */
  // get all projects
  app.get('/api/projects', controllers.projects.show);
-
  app.post('/api/projects', controllers.projects.create);
-
  app.delete('/api/projects/:id', controllers.projects.destroy);
+
+ 
 
 
 app.listen(process.env.PORT || 3000, function () {

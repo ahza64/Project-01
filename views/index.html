@@ -60,18 +60,19 @@
             <br> -->
             <button type="button" name="button" class="deleteBtn btn btn-danger" data-id={{_id}}>Delete</button>
         </p>
-        <form class="form-inline" id="addCharacterForm" data-id={{_id}}>
+        <form class="form-inline" id="newMemberForm" data-id={{_id}}>
           <div class="form-group">
             <input type="text" class="form-control" name="name" placeholder="Member Name">
           </div>
+          <div class="form-group">
+            <input type="text" class="form-control" name="task" placeholder="Member Task">
+          </div>
           <button type="submit" class="btn btn-primary">Add Member</button>
         </form>
-        <div id='memberTarget'>
-        <script id='memberTemplate' type="text/x-handlebars-template">
-          {{member}}
-        </script>
+          {{#each member}}
+            {{name}}
+          {{/each}}
       </div>
-    </div>
     </script>
     <div id='projectTarget'>
     </div>

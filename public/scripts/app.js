@@ -37,7 +37,17 @@ $(document).ready(function() {
     });
   });//end delete project
 
-
+// add member
+  $('#newMemberForm').on('submit', function(e){
+    e.preventDefault();
+    $.ajax({
+      method: "POST",
+      url: "api/projects/"+$(this).attr('data-id')+"/members",
+      data: $(this).serialize(),
+      success: memberPostSuccess,
+      error: memberPostError
+    });
+  });
 
 
 
@@ -69,6 +79,13 @@ function deleteProjectError(err){
   console.log("deleteProjectError ", err);
 }
 
+function memberPostSuccess(json){
+
+}
+
+function memberPostError(err){
+  console.log("memberPostError ", err);
+}
 // handlebar controls
 function renderHandlebars(json) {
   console.log('rendering project:', json);
