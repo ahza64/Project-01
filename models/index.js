@@ -4,3 +4,4 @@ mongoose.connect( process.env.MONGOLAB_URI ||
                   "mongodb://localhost/ProBuilder");
 
 module.exports.Project = require("./project");
+module.exports.Member = require("./member");

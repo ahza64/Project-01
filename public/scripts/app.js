@@ -80,7 +80,7 @@ function deleteProjectError(err){
 }
 
 function memberPostSuccess(json){
-  console.log("membersPostSuccess is successful")
+  console.log("membersPostSuccess is successful");
 }
 
 function memberPostError(err){

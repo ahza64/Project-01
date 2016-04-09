@@ -2,9 +2,6 @@ var mongoose = require('mongoose'),
   Schema = mongoose.Schema,
   Member = require("./member.js");
 
-
-
-
 var projectSchema = new Schema({
   name: String,
   owner: String,
@@ -13,7 +10,6 @@ var projectSchema = new Schema({
   img: String,
   member: [Member.schema]
 });
-
 
 var Project = mongoose.model('Project', projectSchema);
 module.exports = Project;
