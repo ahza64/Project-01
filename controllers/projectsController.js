@@ -20,7 +20,12 @@ function create(req, res) {
 }
 
 function show(req, res) {
-    // console.log("get request ", db.Project);
+  console.log('show is working');
+  db.Project.findById(req.params.project_id, function(err, foundProject) {
+    if(err) { console.log('albumsController.show error', err); }
+    console.log('albumsController.show responding with', foundProject);
+    res.json(foundProject);
+   });
 }
 
 function destroy(req, res) {

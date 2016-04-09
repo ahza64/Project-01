@@ -30,10 +30,10 @@ var controllers = require('./controllers');
  // get all projects
  app.get('/api/projects', controllers.projects.index);
  app.post('/api/projects', controllers.projects.create);
- app.get('/api/projects/:id', controllers.projects.show);
  app.delete('/api/projects/:id', controllers.projects.destroy);
 
  app.post('/api/projects/:project_id/members', controllers.members.create);
+ app.get('/api/projects/:project_id', controllers.projects.show);
 
 
 app.listen(process.env.PORT || 3000, function () {

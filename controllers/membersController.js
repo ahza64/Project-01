@@ -16,7 +16,7 @@ function create(req, res){
         // console.log("-----", req.body);
         foundProject.member.push(req.body);
         foundProject.save();
-        // console.log(foundProject);
+        console.log(foundProject);
         res.status(201).json(foundProject);
       }
       // push req.body into characters array
@@ -27,12 +27,7 @@ function create(req, res){
 }
 
 function show(req, res){
-  console.log('show is working');
-  db.Project.findById(req.params.project_id, function(err, foundProject) {
-    if(err) { console.log('albumsController.show error', err); }
-    console.log('albumsController.show responding with', foundProject);
-    res.json(foundProject);
-   });
+
 }
 
 function destroy(req, res){

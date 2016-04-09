@@ -38,7 +38,7 @@ $(document).ready(function() {
   });//end delete project
 
 // add member
-  $('#projectTarget').on('submit', '#newMemberForm', function(e){
+  $('#projectTarget').on('submit', '#newMemberForm' function(e){
     // console.log($(this).serialize());
     e.preventDefault();
     var $memberSubmit = $(this).attr('data-id');
@@ -85,18 +85,19 @@ function deleteProjectError(err){
 function memberPostSuccess($memberSubmit){
   // console.log("membersPostSuccess is successful", $memberSubmit);
     // console.log('retrieved album w/ id: ', $memberSubmit);
+    // console.log($memberSubmit);
     $.ajax({
       method: "GET",
       url: "api/projects/"+$memberSubmit,
-      success: thememberPostSuccess,
-      error: thememberPostError
+      success: oneProjectSuccess,
+      error: oneProjectError
     });
-    function thememberPostSuccess(data){
-      console.log("member success");
+    function oneProjectSuccess(oneProject){
+      console.log("member success ", oneProject);
       $('#' + $memberSubmit).remove();
-      renderHandlebars(data);
+      renderHandlebars(oneProject);
     }
-    function thememberPostError(err){
+    function oneProjectError(err){
       console.log("member error ", err);
     }
     // $.get('/api/projects/' + $memberSubmit, function(data) {
