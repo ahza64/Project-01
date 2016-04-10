@@ -86,30 +86,6 @@ function memberPostSuccess(oneProject){
   console.log("this is oneProject with new member add on ", oneProject._id);
   $('#'+oneProject._id).remove();
   renderHandlebars(oneProject);
-  // console.log("membersPostSuccess is successful", $memberSubmit);
-    // console.log('retrieved album w/ id: ', $memberSubmit);
-    // console.log($memberSubmit);
-    // $.ajax({
-    //   method: "GET",
-    //   url: "api/projects/"+$memberSubmit,
-    //   success: oneProjectSuccess,
-    //   error: oneProjectError
-    // });
-    // function oneProjectSuccess(oneProject){
-    //   console.log("member success ", oneProject);
-    //   $('#' + $memberSubmit).remove();
-    //   renderHandlebars(oneProject);
-    //   // window.location.reload();
-    // }
-    // function oneProjectError(err){
-    //   console.log("member error ", err);
-    // }
-    // $.get('/api/projects/' + $memberSubmit, function(data) {
-        // remove the current instance of the album from the page
-        // $('#' + $memberSubmit).remove();
-        // re-render it with the new album data (including songs)
-        // renderHandlebars(data);
-    // });
 }
 
 
@@ -118,7 +94,6 @@ function memberPostError(err){
 }
 // handlebar controls
 function renderHandlebars(json) {
-  // console.log('rendering project:', json);
   var gettingHTML = $('#projectTemplate').html();
   var projectTemplate = Handlebars.compile(gettingHTML);
 
