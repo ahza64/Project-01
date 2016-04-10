@@ -15,9 +15,12 @@ function create(req, res){
       }else{
         // console.log("-----", req.body);
         foundProject.member.push(req.body);
-        foundProject.save();
-        console.log(foundProject);
-        res.status(201).json(foundProject);
+        foundProject.save(function(){
+            console.log("member save successful ", foundProject);
+            res.json(foundProject);
+          });
+        // console.log(foundProject);
+        // res.status(201).json(foundProject);
       }
       // push req.body into characters array
 

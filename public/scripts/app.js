@@ -46,7 +46,7 @@ $(document).ready(function() {
       method: "POST",
       url: "api/projects/"+$(this).attr('data-id')+"/members",
       data: $(this).serialize(),
-      success: memberPostSuccess($memberSubmit),
+      success: memberPostSuccess,
       error: memberPostError
     });
     $(this).trigger("reset");
@@ -82,24 +82,25 @@ function deleteProjectError(err){
   console.log("deleteProjectError ", err);
 }
 
-function memberPostSuccess($memberSubmit){
-  // console.log("membersPostSuccess is successful", $memberSubmit);
+function memberPostSuccess(oneProject){
+  console.log("membersPostSuccess is successful", $memberSubmit);
     // console.log('retrieved album w/ id: ', $memberSubmit);
     // console.log($memberSubmit);
-    $.ajax({
-      method: "GET",
-      url: "api/projects/"+$memberSubmit,
-      success: oneProjectSuccess,
-      error: oneProjectError
-    });
-    function oneProjectSuccess(oneProject){
-      console.log("member success ", oneProject);
-      $('#' + $memberSubmit).remove();
-      renderHandlebars(oneProject);
-    }
-    function oneProjectError(err){
-      console.log("member error ", err);
-    }
+    // $.ajax({
+    //   method: "GET",
+    //   url: "api/projects/"+$memberSubmit,
+    //   success: oneProjectSuccess,
+    //   error: oneProjectError
+    // });
+    // function oneProjectSuccess(oneProject){
+    //   console.log("member success ", oneProject);
+    //   $('#' + $memberSubmit).remove();
+    //   renderHandlebars(oneProject);
+    //   // window.location.reload();
+    // }
+    // function oneProjectError(err){
+    //   console.log("member error ", err);
+    // }
     // $.get('/api/projects/' + $memberSubmit, function(data) {
         // remove the current instance of the album from the page
         // $('#' + $memberSubmit).remove();

@@ -47,6 +47,8 @@
     </div>
 <!-- start project section -->
     <script id='projectTemplate' type="text/x-handlebars-template">
+      <section>
+      <div>
       <div id={{_id}}>
         <hr>
         <p>
@@ -71,7 +73,7 @@
         </form>
         <p>
           <div id='a{{_id}}'>
-      
+
           {{#each member}}
           <p>
             {{task}}
@@ -81,6 +83,8 @@
     </div>
         </p>
       </div>
+    </div>
+  </section>
     </script>
     <div id='projectTarget'>
     </div>
