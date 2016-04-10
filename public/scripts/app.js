@@ -83,7 +83,8 @@ function deleteProjectError(err){
 }
 
 function memberPostSuccess(oneProject){
-  console.log("this is oneProject with new member add on ", oneProject);
+  console.log("this is oneProject with new member add on ", oneProject._id);
+  $('#'+oneProject._id).remove();
   renderHandlebars(oneProject);
   // console.log("membersPostSuccess is successful", $memberSubmit);
     // console.log('retrieved album w/ id: ', $memberSubmit);
