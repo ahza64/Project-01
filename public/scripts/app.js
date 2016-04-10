@@ -38,7 +38,7 @@ $(document).ready(function() {
   });//end delete project
 
 // add member
-  $('#projectTarget').on('submit', '#newMemberForm' function(e){
+  $('#projectTarget').on('submit', '#newMemberForm', function(e){
     // console.log($(this).serialize());
     e.preventDefault();
     var $memberSubmit = $(this).attr('data-id');

@@ -29,10 +29,14 @@ var controllers = require('./controllers');
  */
  // get all projects
  app.get('/api/projects', controllers.projects.index);
+ //create project
  app.post('/api/projects', controllers.projects.create);
+ // delete project
  app.delete('/api/projects/:id', controllers.projects.destroy);
 
+ // create member
  app.post('/api/projects/:project_id/members', controllers.members.create);
+ // get a single project
  app.get('/api/projects/:project_id', controllers.projects.show);
 
 
