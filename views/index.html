@@ -23,6 +23,10 @@
 <!-- start project from       -->
       <form class="form-inline" id="newProjectForm">
         <div class="form-group">
+          <label for="title">Project Name</label>
+          <input type="text" class="form-control" name="projectName" placeholder="Project Name">
+        </div>
+        <div class="form-group">
           <label for="title">Owner</label>
           <input type="text" class="form-control" name="owner" placeholder="Don, Bob">
         </div>
@@ -46,46 +50,46 @@
       </div>
     </div>
 <!-- start project section -->
+<script id='projectTemplate' type="text/x-handlebars-template">
+  <div id={{_id}}>
+    <hr>
+    <p>
+      -{{projectName}}
+      -{{owner}}
+      -{{lead}}
+      <image width="50" height="50" src="{{image}}" frameborder="0">
+        <!--  <iframe width="200" height="200" src="{{link}}" frameborder="0"></iframe>
+        <br> -->
+        <button type="button" name="button" class="deleteBtn btn btn-danger" data-id={{_id}}>Delete Project</button>
+      </p>
+      <form class="form-inline" id="newMemberForm" data-id={{_id}}>
+        <div class="form-group">
+          <input type="text" class="form-control" name="memberName" placeholder="Member Name">
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" name="task" placeholder="Member Task">
+        </div>
+        <button type="submit" class="btn btn-primary">Add Member</button>
+      </form>
+      <p>
+        <div id='a{{_id}}'>
+
+          {{#each member}}
+          <p>
+            {{memberName}}
+            <button type="button" name="button" class="deleteBtn btn btn-danger" data-id={{_id}}>Delete Member</button>
+            {{task}}
+            <button type="button" name="button" class="deleteBtn btn btn-info" data-id={{_id}}>Update Task</button>
+          </p>
+          {{/each}}
+
+        </div>
+      </p>
+    </div>
+  </script>
     <section class="container">
       <div>
         <div id='projectTarget'>
-          <script id='projectTemplate' type="text/x-handlebars-template">
-            <div id={{_id}}>
-              <hr>
-              <p>
-                -{{owner}}
-                -{{lead}}
-                -{{message}}
-
-
-                <image width="50" height="50" src="{{image}}" frameborder="0">
-                  <!--  <iframe width="200" height="200" src="{{link}}" frameborder="0"></iframe>
-                  <br> -->
-                  <button type="button" name="button" class="deleteBtn btn btn-danger" data-id={{_id}}>Delete Project</button>
-                </p>
-                <form class="form-inline" id="newMemberForm" data-id={{_id}}>
-                  <div class="form-group">
-                    <input type="text" class="form-control" name="worker" placeholder="Member Name">
-                  </div>
-                  <div class="form-group">
-                    <input type="text" class="form-control" name="task" placeholder="Member Task">
-                  </div>
-                  <button type="submit" class="btn btn-primary">Add Member</button>
-                </form>
-                <p>
-                  <div id='a{{_id}}'>
-
-                    {{#each member}}
-                    <p>
-                      {{task}}
-                      <button type="button" name="button" class="deleteBtn btn btn-danger" data-id={{_id}}>Delete Member</button>
-                    </p>
-                    {{/each}}
-
-                  </div>
-                </p>
-              </div>
-            </script>
         </div>
       </div>
     </section>

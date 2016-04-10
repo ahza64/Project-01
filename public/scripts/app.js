@@ -58,7 +58,9 @@ $(document).ready(function() {
 
 // ajax functions
 function projectsLoadSuccess(json){
-  json.forEach(renderHandlebars);
+  json.forEach(function(project){
+    renderHandlebars(project);
+  });
 }
 
 function projectsLoadError(err){
@@ -84,8 +86,9 @@ function deleteProjectError(err){
 
 function memberPostSuccess(oneProject){
   console.log("this is oneProject with new member add on ", oneProject._id);
+  var projectPos = $('#'+oneProject._id).index();
   $('#'+oneProject._id).remove();
-  renderHandlebars(oneProject);
+  renderHandlebars(oneProject, projectPos);
 }
 
 
@@ -93,10 +96,16 @@ function memberPostError(err){
   console.log("memberPostError ", err);
 }
 // handlebar controls
-function renderHandlebars(json) {
+function renderHandlebars(json, projectPos) {
   var gettingHTML = $('#projectTemplate').html();
   var projectTemplate = Handlebars.compile(gettingHTML);
-
   var html = projectTemplate(json);
+  if(projectPos === 0){
+      $('#projectTarget').prepend(html);
+  }else if(projectPos !== undefined){
+    console.log("keeping project pos ", projectPos);
+    $(html).insertAfter($('#projectTarget').children().eq(projectPos-1));
+  }else{
   $('#projectTarget').append(html);
+  }
 }

@@ -2,7 +2,7 @@ var mongoose = require('mongoose'),
   Schema = mongoose.Schema;
 
 var memberSchema = new Schema({
-  worker: String,
+  memberName: String,
   task: String
 });
 

@@ -3,7 +3,7 @@ var mongoose = require('mongoose'),
   Member = require("./member.js");
 
 var projectSchema = new Schema({
-  name: String,
+  projectName: String,
   owner: String,
   desc: String,
   lead: String,

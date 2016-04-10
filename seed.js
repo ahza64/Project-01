@@ -2,14 +2,14 @@ var db = require('./models');
 
 var sampleProject = [
   {
-    name: "Sample Project",
+    projectName: "Sample Project",
     owner: "Sample Owner",
-    desc: "Sample Description",
     lead: "Sample Lead",
+    desc: "Sample Description",
     img: "http://i.imgur.com/7b3g13s.jpg",
   },
   {
-    name: "Sample Project2",
+    projectName: "Sample Project2",
     owner: "Sample Owner2",
     desc: "Sample Description2",
     lead: "Sample Lead2",
