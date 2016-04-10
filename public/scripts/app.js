@@ -52,7 +52,11 @@ $(document).ready(function() {
     $(this).trigger("reset");
   });
 
+// delete member
+  $('').on('');
 
+// update member
+  $('').on('');
 
 });//end of doc.ready
 

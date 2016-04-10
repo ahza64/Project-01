@@ -20,10 +20,10 @@ function create(req, res) {
 }
 
 function show(req, res) {
-  console.log('show is working');
+  // console.log('show is working');
   db.Project.findById(req.params.project_id, function(err, foundProject) {
-    if(err) { console.log('albumsController.show error', err); }
-    console.log('albumsController.show responding with', foundProject);
+    // if(err) { console.log('projectsController.show error', err); }
+    // console.log('projectsController.show responding with', foundProject);
     res.json(foundProject);
    });
 }

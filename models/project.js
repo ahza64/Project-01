@@ -8,7 +8,7 @@ var projectSchema = new Schema({
   desc: String,
   lead: String,
   img: String,
-  member: [Member.schema]
+  members: [Member.schema]
 });
 
 var Project = mongoose.model('Project', projectSchema);

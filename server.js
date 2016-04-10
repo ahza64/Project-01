@@ -11,37 +11,38 @@ var db = require('./models');
 var controllers = require('./controllers');
 
 /**********
- * ROUTES *
- **********/
+* ROUTES *
+**********/
 
 
-
- /*
-  * HTML Endpoints
-  */
-  //serve static files from views directory
-  app.get('/', function homepage (req, res) {
-    res.sendFile(__dirname + '/views/index.html');
-  });
 
 /*
- * API Endpoints
- */
- // get all projects
- app.get('/api/projects', controllers.projects.index);
- //create project
- app.post('/api/projects', controllers.projects.create);
- // delete project
- app.delete('/api/projects/:id', controllers.projects.destroy);
- // get a single project
- app.get('/api/projects/:project_id', controllers.projects.show);
+* HTML Endpoints
+*/
+//serve static files from views directory
+app.get('/', function homepage (req, res) {
+  res.sendFile(__dirname + '/views/index.html');
+});
 
- // create member
- app.post('/api/projects/:project_id/members', controllers.members.create);
- // delete member
- app.delete('/api/projects/:project_id/members/:member_id', controllers.members.destroy);
- // update member's task
- app.update()
+/*
+* API Endpoints
+*/
+// get all projects
+app.get('/api/projects', controllers.projects.index);
+//create project
+app.post('/api/projects', controllers.projects.create);
+// delete project
+app.delete('/api/projects/:id', controllers.projects.destroy);
+// get a single project
+app.get('/api/projects/:project_id', controllers.projects.show);
+
+// create member
+app.post('/api/projects/:project_id/members', controllers.members.create);
+// delete member
+app.delete('/api/projects/:project_id/members/:member_id', controllers.members.destroy);
+// update member's task
+// app.put('/api/projects/:project_id/members/:member_id', controllers.members.update);
+
 
 app.listen(process.env.PORT || 3000, function () {
   console.log('Express server is running on http://localhost:3000/');

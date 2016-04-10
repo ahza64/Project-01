@@ -10,10 +10,10 @@ function create(req, res){
       }else if(!foundProject){
         res.status(404).json({error: 'There is no project id ' + projectId});
       }else{
-        foundProject.member.push(req.body);
+        foundProject.members.push(req.body);
         foundProject.save(function(){
-            res.json(foundProject);
-          });
+          res.json(foundProject);
+        });
       }
   });
 }
@@ -23,11 +23,17 @@ function show(req, res){
 }
 
 function destroy(req, res){
-
+  // var projectId = req.params.project_id;
+  // db.Project.findById(projectId, function(err, foundProject){
+  //   var memberId = foundProject.member_id
+  //
 }
 
 function update(req, res){
-
+  var memberId = req.params.member_id;
+  db.Member.findById(memberId, function(err, foundMember){
+    memberId.task = req.body.task
+  });
 }
 
 module.exports = {
