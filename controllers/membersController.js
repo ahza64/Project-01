@@ -12,7 +12,6 @@ function create(req, res){
       }else{
         foundProject.member.push(req.body);
         foundProject.save(function(){
-            console.log("member save successful ", foundProject);
             res.json(foundProject);
           });
       }

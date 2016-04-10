@@ -85,7 +85,6 @@ function deleteProjectError(err){
 }
 
 function memberPostSuccess(oneProject){
-  console.log("this is oneProject with new member add on ", oneProject._id);
   var projectPos = $('#'+oneProject._id).index();
   $('#'+oneProject._id).remove();
   renderHandlebars(oneProject, projectPos);
@@ -103,7 +102,6 @@ function renderHandlebars(json, projectPos) {
   if(projectPos === 0){
       $('#projectTarget').prepend(html);
   }else if(projectPos !== undefined){
-    console.log("keeping project pos ", projectPos);
     $(html).insertAfter($('#projectTarget').children().eq(projectPos-1));
   }else{
   $('#projectTarget').append(html);

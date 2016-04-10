@@ -33,12 +33,15 @@ var controllers = require('./controllers');
  app.post('/api/projects', controllers.projects.create);
  // delete project
  app.delete('/api/projects/:id', controllers.projects.destroy);
-
- // create member
- app.post('/api/projects/:project_id/members', controllers.members.create);
  // get a single project
  app.get('/api/projects/:project_id', controllers.projects.show);
 
+ // create member
+ app.post('/api/projects/:project_id/members', controllers.members.create);
+ // delete member
+ app.delete('/api/projects/:project_id/members/:member_id', controllers.members.destroy);
+ // update member's task
+ app.update()
 
 app.listen(process.env.PORT || 3000, function () {
   console.log('Express server is running on http://localhost:3000/');
