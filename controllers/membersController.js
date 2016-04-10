@@ -2,30 +2,20 @@ var db = require('../models');
 
 function create(req, res){
   var projectId = req.params.project_id;
-  // console.log("there should be something here ", db.Project);
-  // console.log(projectId);
   db.Project.findById(projectId)
-   //  .populate('author')
+   //  .populate('lead') here to remind me on refactor for referenced data
     .exec(function(err, foundProject){
-      // handle errors
       if(err){
         res.status(500).json({error: 'so sorry'});
       }else if(!foundProject){
         res.status(404).json({error: 'There is no project id ' + projectId});
       }else{
-        // console.log("-----", req.body);
         foundProject.member.push(req.body);
         foundProject.save(function(){
             console.log("member save successful ", foundProject);
             res.json(foundProject);
           });
-        // console.log(foundProject);
-        // res.status(201).json(foundProject);
       }
-      // push req.body into characters array
-
-      // save the book with the new character
-      // send the entire book back
   });
 }
 
