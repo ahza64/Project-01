@@ -23,6 +23,14 @@ function show(req, res){
 }
 
 function destroy(req, res){
+  console.log("serverside delete complete");
+  console.log("member delete", req.params);
+  res.status(201).json({ok: "ok"});
+  var memberId = req.params.id;
+  var memberData = db.Member;
+  projectData.findOneAndRemove({_id: projectId}, function(err, deletedProject){
+    res.sendStatus(204);
+  });
   // var projectId = req.params.project_id;
   // db.Project.findById(projectId, function(err, foundProject){
   //   var memberId = foundProject.member_id

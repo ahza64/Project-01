@@ -65,7 +65,7 @@ $(document).ready(function() {
       error: memberDeleteError
     });
   });
-  
+
 // update member
   $('#projectTarget').on('submit', '#updateMemberForm', function(e){
     e.preventDefault();
@@ -123,8 +123,16 @@ function memberPostError(err){
   console.log("memberPostError ", err);
 }
 
-function memberUpdateSuccess(json){
+function memberDeleteSuccess(json){
+  console.log("memberDelete success");
+}
 
+function memberDeleteError(err){
+  console.log("memberDelete Error ", err);
+}
+
+function memberUpdateSuccess(json){
+  console.log("memberUpdate success");
 }
 
 function memberUpdateError(err){
