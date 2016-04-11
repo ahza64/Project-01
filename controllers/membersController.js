@@ -30,10 +30,12 @@ function destroy(req, res){
 }
 
 function update(req, res){
-  var memberId = req.params.member_id;
-  db.Member.findById(memberId, function(err, foundMember){
-    memberId.task = req.body.task
-  });
+  console.log("serverside update complete");
+  res.status(201).json({ok: "ok"});
+  // var memberId = req.params.member_id;
+  // db.Member.findById(memberId, function(err, foundMember){
+  //   memberId.task = req.body.task;
+  // });
 }
 
 module.exports = {

@@ -53,15 +53,19 @@ $(document).ready(function() {
   });
 
 // delete member
-  $('').on('');
-
+  $('#projectTarget').on('click', '#updateMemberForm', function(e){
+    e.preventDefault();
+  });
 // update member
   $('#projectTarget').on('submit', '#updateMemberForm', function(e){
     e.preventDefault();
-    var $memberUpdate = $(this).attr('data-id');
+    var $memberUpdate = $(this).attr('data-member-id');
+    var $project = $(this).closest("itsits");
+    var $projects = this.parentElement.parentElement.id;
+    console.log("thig this here ", $projects, this);
     $.ajax({
       method: "PUT",
-      // url: "api/projects/"+$(this).closest("data-id")+"/members"+$memberUpdate,
+      url: "api/projects/"+$projects+"/members/"+$memberUpdate,
       data: $(this).serialize(),
       success: memberUpdateSuccess,
       error: memberUpdateError
@@ -105,10 +109,18 @@ function memberPostSuccess(oneProject){
   renderHandlebars(oneProject, projectPos);
 }
 
-
 function memberPostError(err){
   console.log("memberPostError ", err);
 }
+
+function memberUpdateSuccess(json){
+
+}
+
+function memberUpdateError(err){
+  console.log("member update error ", err);
+}
+
 // handlebar controls
 function renderHandlebars(json, projectPos) {
   var gettingHTML = $('#projectTemplate').html();

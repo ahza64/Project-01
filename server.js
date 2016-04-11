@@ -41,7 +41,7 @@ app.post('/api/projects/:project_id/members', controllers.members.create);
 // delete member
 app.delete('/api/projects/:project_id/members/:member_id', controllers.members.destroy);
 // update member's task
-// app.put('/api/projects/:project_id/members/:member_id', controllers.members.update);
+app.put('/api/projects/:project_id/members/:member_id', controllers.members.update);
 
 
 app.listen(process.env.PORT || 3000, function () {
