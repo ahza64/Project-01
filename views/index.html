@@ -77,8 +77,8 @@
       </form>
       <p>
 
-        <div id='{{_id}}'>
           {{#each members}}
+          <div id='{{_id}}'>
           <p>
             <form class="form-inline" id="updateMemberForm" data-member-id={{_id}}>
             {{memberName}}
@@ -90,8 +90,8 @@
               <button type="button" name="button" class="deleteBtn memberDelete btn btn-danger" data-member-id={{_id}} data-project-id={{../_id}}>Delete Member</button>
             </form>
           </p>
-          {{/each}}
         </div>
+          {{/each}}
 
       </p>
     </div>

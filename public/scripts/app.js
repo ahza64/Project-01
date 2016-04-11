@@ -28,7 +28,7 @@ $(document).ready(function() {
 
 // deleting a project
   $('#projectTarget').on('click', '#projectDelete', function(){
-    console.log('clicked delete button to', '/api/projects/'+$(this).attr('data-id'));
+    // console.log('clicked delete button to', '/api/projects/'+$(this).attr('data-id'));
     var $deleteButton = $(this).attr('data-id');
     $.ajax({
       method: 'DELETE',
@@ -61,7 +61,7 @@ $(document).ready(function() {
       method: "DELETE",
       url: "api/projects/"+$projectId+"/members/"+$memberId,
       // data: $(this).serialize(),
-      success: memberDeleteSuccess,
+      success: memberDeleteSuccess($memberId),
       error: memberDeleteError
     });
   });
@@ -84,6 +84,7 @@ $(document).ready(function() {
 });//end of doc.ready
 
 // ajax functions
+// projects load
 function projectsLoadSuccess(json){
   json.forEach(function(project){
     renderHandlebars(project);
@@ -91,51 +92,46 @@ function projectsLoadSuccess(json){
   var saw = new Audio('audio/saw.mp3');
   // saw.play();
 }
-
 function projectsLoadError(err){
   console.log("projectLosdError return ", err);
 }
-
+// project post
 function projectPostSuccess(json){
   console.log("project ", json);
   renderHandlebars(json);
 }
-
 function projectPostError(err){
   console.log("projectPostError return ", err);
 }
-
+// project delete
 function deleteProjectSuccess($deleteButton){
   $('#'+$deleteButton).remove();
 }
-
 function deleteProjectError(err){
   console.log("deleteProjectError ", err);
 }
-
+// member post
 function memberPostSuccess(oneProject){
   console.log("memberPostSuccess");
   var projectPos = $('#'+oneProject._id).index();
   $('#'+oneProject._id).remove();
   renderHandlebars(oneProject, projectPos);
 }
-
 function memberPostError(err){
   console.log("memberPostError ", err);
 }
-
-function memberDeleteSuccess(json){
+// member delete
+function memberDeleteSuccess($memberId){
   console.log("memberDelete success");
+  $('#'+$memberId).remove();
 }
-
 function memberDeleteError(err){
   console.log("memberDelete Error ", err);
 }
-
+// member update
 function memberUpdateSuccess(json){
   console.log("memberUpdate success");
 }
-
 function memberUpdateError(err){
   console.log("member update error ", err);
 }
