@@ -1,16 +1,17 @@
 
 
 
+
 $(document).ready(function() {
   console.log("JS is definitely working, and document is loaded");
 
 // rendering all projects on the page
-$.ajax({
-  method: "GET",
-  url: "api/projects",
-  success: projectsLoadSuccess,
-  error: projectsLoadError
-});
+  $.ajax({
+    method: "GET",
+    url: "api/projects",
+    success: projectsLoadSuccess,
+    error: projectsLoadError
+  });
 
 // adding a new project
   $('#newProjectForm').on('submit', function(e){
@@ -88,6 +89,8 @@ function projectsLoadSuccess(json){
   json.forEach(function(project){
     renderHandlebars(project);
   });
+  var saw = new Audio('audio/saw.mp3');
+  saw.play();
 }
 
 function projectsLoadError(err){
@@ -144,7 +147,7 @@ function renderHandlebars(json, projectPos) {
   var projectTemplate = Handlebars.compile(gettingHTML);
   var html = projectTemplate(json);
   if(projectPos === 0){
-      $('#projectTarget').prepend(html);
+    $('#projectTarget').prepend(html);
   }else if(projectPos !== undefined){
     $(html).insertAfter($('#projectTarget').children().eq(projectPos-1));
   }else{
