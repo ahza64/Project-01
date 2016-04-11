@@ -23,7 +23,7 @@ function show(req, res){
 }
 
 function destroy(req, res){
-  console.log("serverside delete route success");
+  console.log("serverside members delete route success");
   console.log("member delete", req.params);//member_id is undefined
   res.status(201).json({ok: "ok"});
   var memberId = req.params.member_id;
@@ -41,9 +41,9 @@ function update(req, res){
   var memberId = req.params.member_id;
   var projectId = req.params.project_id;
   db.Project.findById(projectId, function(err, foundProject){
-    foundProject.members.forEach(function(element){
-      if(element._id == memberId){
-        element.task = req.body.task;
+    foundProject.members.forEach(function(member){
+      if(member._id == memberId){
+        member.task = req.body.task;
         foundProject.save(function(){
           res.status(200).json(foundProject);
         });

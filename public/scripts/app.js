@@ -55,13 +55,12 @@ $(document).ready(function() {
 
 // delete member
   $('#projectTarget').on('click', '.memberDeleteBtn', function(e){
-    var $memberUpdate = $(this).attr('data-member-id');
-    var $project = $(this).closest(".").attr("itsits");
-    var $projects = this.parentElement.parentElement.id;
-    console.log("parentElement ", $projects);
+    var $memberId = $(this).attr('data-member-id');
+    var $projectId = this.parentElement.parentElement.id;
+    console.log("parentElement ", $projectId);
     $.ajax({
       method: "DELETE",
-      url: "api/projects/"+$projects+"/members/"+$memberUpdate,
+      url: "api/projects/"+$projectId+"/members/"+$memberId,
       data: $(this).serialize(),
       success: memberDeleteSuccess,
       error: memberDeleteError
@@ -72,10 +71,10 @@ $(document).ready(function() {
   $('#projectTarget').on('submit', '#updateMemberForm', function(e){
     e.preventDefault();
     var $memberUpdate = $(this).attr('data-member-id');
-    var $projects = this.parentElement.parentElement.id;
+    var $project = this.parentElement.parentElement.id;
     $.ajax({
       method: "PUT",
-      url: "api/projects/"+$projects+"/members/"+$memberUpdate,
+      url: "api/projects/"+$project+"/members/"+$memberUpdate,
       data: $(this).serialize(),
       success: memberUpdateSuccess,
       error: memberUpdateError
