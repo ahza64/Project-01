@@ -76,13 +76,14 @@
 
           {{#each members}}
           <p>
-            <form class="form-inline" id="newMemberForm" data-id={{_id}}>
+            <form class="form-inline" id="updateMemberForm" data-id={{_id}}>
             {{memberName}}
-            <button type="button" name="button" class="deleteBtn btn btn-danger" data-id={{_id}}>Delete Member</button>
               <div class="form-group">
-                <input type="text" class="form-control" name="task" value="{{task}}" placeholder="Member Task" readonly>
+                Task::::
+                <input type="text" class="form-control" name="task" value="{{task}}" placeholder="Member Task">
               </div>
               <button type="submit" class="btn btn-info">Update Task</button>
+              <button type="button" name="button" class="deleteBtn btn btn-danger" data-id={{_id}}>Delete Member</button>
             </form>
           </p>
           {{/each}}
@@ -94,6 +95,7 @@
     <section class="container">
       <div>
         <div id='projectTarget'>
+          <!--handlebars go here-->
         </div>
       </div>
     </section>

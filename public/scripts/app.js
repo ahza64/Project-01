@@ -56,7 +56,17 @@ $(document).ready(function() {
   $('').on('');
 
 // update member
-  $('').on('');
+  $('#projectTarget').on('submit', '#updateMemberForm', function(e){
+    e.preventDefault();
+    var $memberUpdate = $(this).attr('data-id');
+    $.ajax({
+      method: "PUT",
+      // url: "api/projects/"+$(this).closest("data-id")+"/members"+$memberUpdate,
+      data: $(this).serialize(),
+      success: memberUpdateSuccess,
+      error: memberUpdateError
+    });
+  });
 
 });//end of doc.ready
 
@@ -90,6 +100,7 @@ function deleteProjectError(err){
 
 function memberPostSuccess(oneProject){
   var projectPos = $('#'+oneProject._id).index();
+  console.log(oneProject);
   $('#'+oneProject._id).remove();
   renderHandlebars(oneProject, projectPos);
 }
