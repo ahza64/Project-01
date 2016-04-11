@@ -70,7 +70,6 @@ $(document).ready(function() {
   $('#projectTarget').on('submit', '#updateMemberForm', function(e){
     e.preventDefault();
     var $memberUpdate = $(this).attr('data-member-id');
-    var $project = $(this).closest("itsits");
     var $projects = this.parentElement.parentElement.id;
     console.log("thig this here ", $projects, this);
     $.ajax({
@@ -132,7 +131,7 @@ function memberDeleteError(err){
 }
 
 function memberUpdateSuccess(json){
-  console.log("memberUpdate success");
+  console.log("memberUpdate success ", json);
 }
 
 function memberUpdateError(err){

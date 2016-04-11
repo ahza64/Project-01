@@ -23,12 +23,12 @@ function show(req, res){
 }
 
 function destroy(req, res){
-  console.log("serverside delete complete");
-  console.log("member delete", req.params);
+  console.log("serverside delete route success");
+  console.log("member delete", req.params);//member_id is undefined
   res.status(201).json({ok: "ok"});
-  var memberId = req.params.id;
+  var memberId = req.params.member_id;
   var memberData = db.Member;
-  projectData.findOneAndRemove({_id: projectId}, function(err, deletedProject){
+  projectData.findOneAndRemove({_id: memberId}, function(err, deletedMember){
     res.sendStatus(204);
   });
   // var projectId = req.params.project_id;
@@ -38,12 +38,14 @@ function destroy(req, res){
 }
 
 function update(req, res){
-  console.log("serverside update complete");
-  res.status(201).json({ok: "ok"});
-  // var memberId = req.params.member_id;
-  // db.Member.findById(memberId, function(err, foundMember){
-  //   memberId.task = req.body.task;
-  // });
+  console.log("serverside update complete ", req);
+  var memberId = req.params.member_id;
+  db.Member.findById(memberId, function(err, foundMember){
+    foundMember.task = req.body.task;
+    foundMember.save(function(){
+      res.status(201).json(foundMember);
+    });
+  });
 }
 
 module.exports = {
