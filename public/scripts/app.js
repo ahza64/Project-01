@@ -53,9 +53,19 @@ $(document).ready(function() {
   });
 
 // delete member
-  $('#projectTarget').on('click', '#updateMemberForm', function(e){
-    e.preventDefault();
+  $('#projectTarget').on('click', '.memberDeleteBtn', function(e){
+    var $memberUpdate = $(this).attr('data-member-id');
+    var $project = $(this).closest("itsits");
+    var $projects = this.parentElement.parentElement.id;
+    $.ajax({
+      method: "DELETE",
+      url: "api/projects/"+$projects+"/members/"+$memberUpdate,
+      data: $(this).serialize(),
+      success: memberDeleteSuccess,
+      error: memberDeleteError
+    });
   });
+  
 // update member
   $('#projectTarget').on('submit', '#updateMemberForm', function(e){
     e.preventDefault();
