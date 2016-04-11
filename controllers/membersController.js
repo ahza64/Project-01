@@ -23,18 +23,27 @@ function show(req, res){
 }
 
 function destroy(req, res){
-  console.log("serverside members delete route success");
-  console.log("member delete", req.params);//member_id is undefined
-  res.status(201).json({ok: "ok"});
+  res.status(200);
   var memberId = req.params.member_id;
-  var memberData = db.Member;
+  var projectId = req.params.project_id;
+  db.Project.findById(projectId, function(err, foundProject){
+    var membersArry = foundProject.members;
+    for (i = 0; i < membersArry.length; i++){
+      if(membersArry[i]._id == memberId){
+        foundProject.membersArry[i].remove();
+        foundProject.save();
+      }
+    }
+
+    // foundProject.members.forEach(function(member){
+    //   if(member._id == memberId){
+    //
+    //   }
+    });
+  });
   projectData.findOneAndRemove({_id: memberId}, function(err, deletedMember){
     res.sendStatus(204);
   });
-  // var projectId = req.params.project_id;
-  // db.Project.findById(projectId, function(err, foundProject){
-  //   var memberId = foundProject.member_id
-  //
 }
 
 function update(req, res){

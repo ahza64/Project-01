@@ -89,7 +89,7 @@ function projectsLoadSuccess(json){
     renderHandlebars(project);
   });
   var saw = new Audio('audio/saw.mp3');
-  saw.play();
+  // saw.play();
 }
 
 function projectsLoadError(err){
