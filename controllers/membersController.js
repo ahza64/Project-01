@@ -38,15 +38,28 @@ function destroy(req, res){
 }
 
 function update(req, res){
-  console.log("serverside update complete ", req);
+  // console.log("serverside update complete ", req);
   var memberId = req.params.member_id;
-  db.Member.findById(memberId, function(err, foundMember){
-    foundMember.task = req.body.task;
-    foundMember.save(function(){
-      res.status(201).json(foundMember);
+  var projectId = req.params.project_id;
+  // console.log("memberId ", memberId);
+  // console.log("projectId yaay ", projectId);
+  db.Project.findById(projectId, function(err, foundProject){
+    // console.log("found project ", foundProject);
+    foundProject.members.forEach(function(element){
+      console.log(element);
+      if(element._id == memberId){
+        element.task = req.body.task;
+        foundProject.save(function(){
+          console.log("yaaay ", foundProject);
+          res.status(200).json(element);
+        });
+      }
     });
   });
 }
+
+    // db.Member.findById({_id: memberId}, function(err, foundMember){
+    //   console.log("foundMember ", foundMember);
 
 module.exports = {
   create: create,

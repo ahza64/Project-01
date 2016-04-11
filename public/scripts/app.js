@@ -55,8 +55,9 @@ $(document).ready(function() {
 // delete member
   $('#projectTarget').on('click', '.memberDeleteBtn', function(e){
     var $memberUpdate = $(this).attr('data-member-id');
-    var $project = $(this).closest("itsits");
+    var $project = $(this).closest(".").attr("itsits");
     var $projects = this.parentElement.parentElement.id;
+    console.log("parentElement ", $projects);
     $.ajax({
       method: "DELETE",
       url: "api/projects/"+$projects+"/members/"+$memberUpdate,
@@ -71,7 +72,7 @@ $(document).ready(function() {
     e.preventDefault();
     var $memberUpdate = $(this).attr('data-member-id');
     var $projects = this.parentElement.parentElement.id;
-    console.log("thig this here ", $projects, this);
+    // console.log("thig this here ", $projects, this);
     $.ajax({
       method: "PUT",
       url: "api/projects/"+$projects+"/members/"+$memberUpdate,
@@ -112,8 +113,8 @@ function deleteProjectError(err){
 }
 
 function memberPostSuccess(oneProject){
+  console.log("memberPostSuccess");
   var projectPos = $('#'+oneProject._id).index();
-  console.log(oneProject);
   $('#'+oneProject._id).remove();
   renderHandlebars(oneProject, projectPos);
 }
