@@ -76,10 +76,14 @@
 
           {{#each members}}
           <p>
+            <form class="form-inline" id="newMemberForm" data-id={{_id}}>
             {{memberName}}
             <button type="button" name="button" class="deleteBtn btn btn-danger" data-id={{_id}}>Delete Member</button>
-            {{task}}
-            <button type="button" name="button" class="deleteBtn btn btn-info" data-id={{_id}}>Update Task</button>
+              <div class="form-group">
+                <input type="text" class="form-control" name="task" value="{{task}}" placeholder="Member Task" readonly>
+              </div>
+              <button type="submit" class="btn btn-info">Update Task</button>
+            </form>
           </p>
           {{/each}}
 
