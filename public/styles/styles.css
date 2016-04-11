@@ -1,0 +1,6 @@
+.jumbotron {
+  background-image: url(/images/project.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: #EEE;
+}
