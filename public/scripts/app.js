@@ -5,12 +5,12 @@ $(document).ready(function() {
   console.log("JS is definitely working, and document is loaded");
 
 // rendering all projects on the page
-  $.ajax({
-    method: "GET",
-    url: "api/projects",
-    success: projectsLoadSuccess,
-    error: projectsLoadError
-  });
+$.ajax({
+  method: "GET",
+  url: "api/projects",
+  success: projectsLoadSuccess,
+  error: projectsLoadError
+});
 
 // adding a new project
   $('#newProjectForm').on('submit', function(e){
@@ -23,7 +23,7 @@ $(document).ready(function() {
       error: projectPostError
     });
     $(this).trigger("reset");
-  });//end new Project
+  });
 
 // deleting a project
   $('#projectTarget').on('click', '.deleteBtn', function(){
@@ -35,7 +35,7 @@ $(document).ready(function() {
       success: deleteProjectSuccess($deleteButton),
       error: deleteProjectError
     });
-  });//end delete project
+  });
 
 // add member
   $('#projectTarget').on('submit', '#newMemberForm', function(e){
@@ -70,9 +70,8 @@ $(document).ready(function() {
 // update member
   $('#projectTarget').on('submit', '#updateMemberForm', function(e){
     e.preventDefault();
-    var $memberUpdate = $(this).attr('data-member-id');
+    // var $memberUpdate = $(this).attr('data-member-id'); play with this later
     var $projects = this.parentElement.parentElement.id;
-    // console.log("thig this here ", $projects, this);
     $.ajax({
       method: "PUT",
       url: "api/projects/"+$projects+"/members/"+$memberUpdate,
