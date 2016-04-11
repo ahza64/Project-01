@@ -64,7 +64,7 @@
       <image width="50" height="50" src="{{image}}" frameborder="0">
         <!--  <iframe width="200" height="200" src="{{link}}" frameborder="0"></iframe>
         <br> -->
-        <button type="button" name="button" class="deleteBtn btn btn-danger" data-id={{_id}}>Delete Project</button>
+        <button type="button" id="projectDelete" name="button" class="deleteBtn btn btn-danger" data-id={{_id}}>Delete Project</button>
       </p>
       <form class="form-inline" id="newMemberForm" data-id={{_id}}>
         <div class="form-group">
@@ -77,8 +77,8 @@
       </form>
       <p>
 
+        <div id='{{_id}}'>
           {{#each members}}
-          <div id='{{_id}}'>
           <p>
             <form class="form-inline" id="updateMemberForm" data-member-id={{_id}}>
             {{memberName}}
@@ -87,11 +87,11 @@
                 <input type="text" class="form-control" name="task" value="{{task}}" placeholder="Member Task">
               </div>
               <button type="submit" class="btn btn-info">Update Task</button>
-              <button type="button" name="button" class="deleteBtn memberDeleteBtn btn btn-danger" data-member-id={{_id}}>Delete Member</button>
+              <button type="button" name="button" class="deleteBtn memberDelete btn btn-danger" data-member-id={{_id}} data-project-id={{../_id}}>Delete Member</button>
             </form>
           </p>
-          </div>
           {{/each}}
+        </div>
 
       </p>
     </div>

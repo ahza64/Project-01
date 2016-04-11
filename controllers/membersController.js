@@ -23,15 +23,17 @@ function show(req, res){
 }
 
 function destroy(req, res){
-  res.status(200);
   var memberId = req.params.member_id;
   var projectId = req.params.project_id;
   db.Project.findById(projectId, function(err, foundProject){
+    // console.log("foundProject ", foundProject);
     var membersArry = foundProject.members;
+    console.log("foundProject ", membersArry[0]);
     for (i = 0; i < membersArry.length; i++){
       if(membersArry[i]._id == memberId){
-        foundProject.membersArry[i].remove();
+        foundProject.members[i].remove();
         foundProject.save();
+        res.sendStatus(204);
       }
     }
 
@@ -39,11 +41,11 @@ function destroy(req, res){
     //   if(member._id == memberId){
     //
     //   }
-    });
+
   });
-  projectData.findOneAndRemove({_id: memberId}, function(err, deletedMember){
-    res.sendStatus(204);
-  });
+  // projectData.findOneAndRemove({_id: memberId}, function(err, deletedMember){
+  //   res.sendStatus(204);
+  // });
 }
 
 function update(req, res){
