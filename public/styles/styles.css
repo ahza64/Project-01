@@ -1,6 +1,15 @@
 .jumbotron {
-  background-image: url(/images/project.jpg);
+  background:
+    linear-gradient(
+      rgba(0, 0, 0, 0.3),
+      rgba(0, 0, 0, 0.3)
+    ),
+    url(/images/project.jpg);
   background-size: cover;
   background-repeat: no-repeat;
+  background-color: rbga(0, 0, 0, 0);
   color: #EEE;
+}
+.shade {
+  background-color: rbga(0, 0, 0, 1);
 }

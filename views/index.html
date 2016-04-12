@@ -21,24 +21,32 @@
       </div>
 <!-- start project from       -->
       <form class="form-inline" id="newProjectForm">
+        <p>
         <div class="form-group">
-          <label for="title">Project Name</label>
+          <!-- <label for="title">Project Name</label> -->
           <input type="text" class="form-control" name="projectName" placeholder="Project Name">
         </div>
+        </p>
+        <p>
         <div class="form-group">
-          <label for="title">Owner</label>
-          <input type="text" class="form-control" name="owner" placeholder="Don, Bob">
+          <!-- <label for="title">Owner</label> -->
+          <input type="text" class="form-control" name="owner" placeholder="Project Owner">
         </div>
+        </p>
+        <p>
         <div class="form-group">
-          <label for="title">Lead Journeyman</label>
-          <input type="text" class="form-control" name="lead" placeholder="Journeyman name">
+          <!-- <label for="title">Lead Journeyman</label> -->
+          <input type="text" class="form-control" name="lead" placeholder="Lead Journeyman">
         </div>
+        </p>
+        <p>
         <div class="form-group">
-          <label for="title">Description</label>
+          <!-- <label for="title">Description</label> -->
           <input type="text" class="form-control" name="desc" placeholder="Short description">
         </div>
+        </p>
         <div class="form-group">
-          <label for="title">Project Picture</label>
+          <!-- <label for="title">Project Picture</label> -->
           <input type="text" class="form-control" name="image" placeholder="Image Url (optional)">
         </div>
         <button type="submit" class="btn btn-default">Create Project</button>
@@ -50,18 +58,18 @@
     </div>
 <!-- start project section -->
 <script id='projectTemplate' type="text/x-handlebars-template">
-  <div id={{_id}}>
+  <div id={{_id}} style="background-image:url({{image}})">
     <hr>
     <p>
-      -{{projectName}}
+      Project: {{projectName}}
     </p>
     <p>
-      -{{owner}}
+      Creator: {{owner}}
     </p>
     <p>
-      -{{lead}}
+      Lead: {{lead}}
     </p>
-      <image width="50" height="50" src="{{image}}" frameborder="0">
+      <!-- <image width="50" height="50" src={{image}} frameborder="0"> -->
         <!--  <iframe width="200" height="200" src="{{link}}" frameborder="0"></iframe>
         <br> -->
         <button type="button" id="projectDelete" name="button" class="deleteBtn btn btn-danger" data-id={{_id}}>Delete Project</button>
@@ -78,10 +86,10 @@
       <p>
 
           {{#each members}}
-          <div id='{{_id}}'>
+          <div id={{_id}}>
           <p>
             <form class="form-inline" id="updateMemberForm" data-member-id={{_id}}>
-            {{memberName}}
+            Member: {{memberName}}
               <div class="form-group">
                 Task::::
                 <input type="text" class="form-control" name="task" value="{{task}}" placeholder="Member Task">

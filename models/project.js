@@ -7,7 +7,7 @@ var projectSchema = new Schema({
   owner: String,
   desc: String,
   lead: String,
-  img: String,
+  image: String,
   members: [Member.schema]
 });
 
