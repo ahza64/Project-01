@@ -16,41 +16,44 @@
   <body>
     <div class="jumbotron">
       <div class="container">
-        <h1>Welcome to ProBuilder</h1>
-        <p>The hub for your projects in motion</p>
-      </div>
+        <div class="row">
+          <div class="col-xs-offset-1">
+            <h1>Welcome to ProBuilder</h1>
+            <p>The hub for your projects in motion</p>
+          </div>
+
 <!-- start project from       -->
-      <form class="form-inline" id="newProjectForm">
-        <p>
-        <div class="form-group">
-          <!-- <label for="title">Project Name</label> -->
-          <input type="text" class="form-control" name="projectName" placeholder="Project Name">
+
+          <div class="col-xs-offset-1 col-xs-5">
+            <form class="form-inline" id="newProjectForm">
+              <p>
+                <div class="form-group">
+                  <input type="text" class="form-control" name="projectName" placeholder="Project Name">
+                </div>
+              </p>
+              <p>
+                <div class="form-group">
+                  <input type="text" class="form-control" name="owner" placeholder="Project Owner">
+                </div>
+              </p>
+              <p>
+                <div class="form-group">
+                  <input type="text" class="form-control" name="lead" placeholder="Lead Journeyman">
+                </div>
+              </p>
+              <p>
+                <div class="form-group">
+                  <input type="text" class="form-control" name="desc" placeholder="Short description">
+                </div>
+              </p>
+                <div class="form-group">
+                  <input type="text" class="form-control" name="image" placeholder="Image Url (optional)">
+                </div>
+              <button type="submit" class="btn btn-default">Create Project</button>
+            </form>
+          </div>
         </div>
-        </p>
-        <p>
-        <div class="form-group">
-          <!-- <label for="title">Owner</label> -->
-          <input type="text" class="form-control" name="owner" placeholder="Project Owner">
-        </div>
-        </p>
-        <p>
-        <div class="form-group">
-          <!-- <label for="title">Lead Journeyman</label> -->
-          <input type="text" class="form-control" name="lead" placeholder="Lead Journeyman">
-        </div>
-        </p>
-        <p>
-        <div class="form-group">
-          <!-- <label for="title">Description</label> -->
-          <input type="text" class="form-control" name="desc" placeholder="Short description">
-        </div>
-        </p>
-        <div class="form-group">
-          <!-- <label for="title">Project Picture</label> -->
-          <input type="text" class="form-control" name="image" placeholder="Image Url (optional)">
-        </div>
-        <button type="submit" class="btn btn-default">Create Project</button>
-      </form>
+      </div>
 <!-- end project form -->
       <div class="test">
 
@@ -58,7 +61,7 @@
     </div>
 <!-- start project section -->
 <script id='projectTemplate' type="text/x-handlebars-template">
-  <div id={{_id}} style="background-image:url({{image}})">
+  <div id={{_id}} class="col-xs-6" style="background:linear-gradient(rgba(255, 255, 255, 0.7),rgba(255, 255, 255, 0.7)),url({{image}})">
     <hr>
     <p>
       Project: {{projectName}}
@@ -69,11 +72,13 @@
     <p>
       Lead: {{lead}}
     </p>
+    <p>
+      {{desc}}
+    </p>
       <!-- <image width="50" height="50" src={{image}} frameborder="0"> -->
         <!--  <iframe width="200" height="200" src="{{link}}" frameborder="0"></iframe>
         <br> -->
         <button type="button" id="projectDelete" name="button" class="deleteBtn btn btn-danger" data-id={{_id}}>Delete Project</button>
-      </p>
       <form class="form-inline" id="newMemberForm" data-id={{_id}}>
         <div class="form-group">
           <input type="text" class="form-control" name="memberName" placeholder="Member Name">
@@ -84,33 +89,28 @@
         <button type="submit" class="btn btn-primary">Add Member</button>
       </form>
       <p>
-
-          {{#each members}}
+        {{#each members}}
           <div id={{_id}}>
-          <p>
-            <form class="form-inline" id="updateMemberForm" data-member-id={{_id}}>
-            Member: {{memberName}}
-              <div class="form-group">
-                Task::::
-                <input type="text" class="form-control" name="task" value="{{task}}" placeholder="Member Task">
-              </div>
-              <button type="submit" class="btn btn-info">Update Task</button>
-              <button type="button" name="button" class="deleteBtn memberDelete btn btn-danger" data-member-id={{_id}} data-project-id={{../_id}}>Delete Member</button>
-            </form>
-          </p>
-        </div>
-          {{/each}}
-
+            <p>
+              <form class="form-inline" id="updateMemberForm" data-member-id={{_id}}>
+                Member: {{memberName}}
+                <div class="form-group">
+                  Task::::: <input type="text" class="form-control" name="task" value="{{task}}" placeholder="Member Task">
+                </div>
+                <button type="submit" class="btn btn-info">Update Task</button>
+                <button type="button" name="button" class="deleteBtn memberDelete btn btn-danger" data-member-id={{_id}} data-project-id={{../_id}}>Delete Member</button>
+              </form>
+            </p>
+          </div>
+        {{/each}}
       </p>
     </div>
   </script>
-    <section class="container">
-      <div>
-        <div id='projectTarget'>
-          <!--handlebars go here-->
-        </div>
-      </div>
-    </section>
+  <div class="container">
+    <div id='projectTarget' class="row">
+      <!--handlebars go here-->
+    </div>
+  </div>
 <!-- end project section -->
   </body>
 </html>

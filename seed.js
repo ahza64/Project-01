@@ -6,14 +6,14 @@ var sampleProject = [
     owner: "Sample Owner",
     lead: "Sample Lead",
     desc: "Sample Description",
-    img: "http://i.imgur.com/7b3g13s.jpg",
+    image: "http://www.wntdesign.com/images/R_BELVEDERE.jpg",
   },
   {
     projectName: "Sample Project2",
     owner: "Sample Owner2",
     desc: "Sample Description2",
     lead: "Sample Lead2",
-    img: "http://i.imgur.com/7b3g13s.jpg",
+    image: "http://www.wntdesign.com/images/C_MEADOW_1.jpg",
   }
 ];
 
