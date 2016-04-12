@@ -19,15 +19,6 @@ function create(req, res) {
   });
 }
 
-function show(req, res) {
-  // console.log('show is working');
-  db.Project.findById(req.params.project_id, function(err, foundProject) {
-    // if(err) { console.log('projectsController.show error', err); }
-    // console.log('projectsController.show responding with', foundProject);
-    res.json(foundProject);
-   });
-}
-
 function destroy(req, res) {
   console.log("project delete", req.params);
   //find the _id of this delete
@@ -38,15 +29,9 @@ function destroy(req, res) {
   });
 }
 
-function update(req, res) {
-
-}
-
 // export public methods here
 module.exports = {
   index: index,
   create: create,
-  show: show,
   destroy: destroy,
-  update: update
 };

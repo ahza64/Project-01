@@ -28,7 +28,6 @@ $(document).ready(function() {
 
 // deleting a project
   $('#projectTarget').on('click', '#projectDelete', function(){
-    // console.log('clicked delete button to', '/api/projects/'+$(this).attr('data-id'));
     var $deleteButton = $(this).attr('data-id');
     $.ajax({
       method: 'DELETE',
@@ -40,7 +39,6 @@ $(document).ready(function() {
 
 // add member
   $('#projectTarget').on('submit', '#newMemberForm', function(e){
-    // console.log($(this).serialize());
     e.preventDefault();
     var $memberSubmit = $(this).attr('data-id');
     $.ajax({
@@ -60,7 +58,6 @@ $(document).ready(function() {
     $.ajax({
       method: "DELETE",
       url: "api/projects/"+$projectId+"/members/"+$memberId,
-      // data: $(this).serialize(),
       success: memberDeleteSuccess($memberId),
       error: memberDeleteError
     });
@@ -71,7 +68,6 @@ $(document).ready(function() {
     e.preventDefault();
     var $memberUpdate = $(this).attr('data-member-id');
     var $project = this.parentElement.parentElement.id;
-    console.log("update ", $memberUpdate, $project);
     $.ajax({
       method: "PUT",
       url: "api/projects/"+$project+"/members/"+$memberUpdate,
@@ -105,6 +101,7 @@ function projectPostError(err){
 }
 // project delete
 function deleteProjectSuccess($deleteButton){
+  console.log("deleteProject succss");
   $('#'+$deleteButton).remove();
 }
 function deleteProjectError(err){

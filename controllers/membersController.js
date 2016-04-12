@@ -18,34 +18,21 @@ function create(req, res){
   });
 }
 
-function show(req, res){
-
-}
-
 function destroy(req, res){
   var memberId = req.params.member_id;
   var projectId = req.params.project_id;
   db.Project.findById(projectId, function(err, foundProject){
-    // console.log("foundProject ", foundProject);
     var membersArry = foundProject.members;
-    console.log("foundProject ", membersArry[0]);
     for (i = 0; i < membersArry.length; i++){
       if(membersArry[i]._id == memberId){
         foundProject.members[i].remove();
-        foundProject.save();
-        res.sendStatus(204);
+        foundProject.save(saveFunction());
       }
     }
-
-    // foundProject.members.forEach(function(member){
-    //   if(member._id == memberId){
-    //
-    //   }
-
+    function saveFunction(){
+      res.sendStatus(204);
+    }
   });
-  // projectData.findOneAndRemove({_id: memberId}, function(err, deletedMember){
-  //   res.sendStatus(204);
-  // });
 }
 
 function update(req, res){
@@ -65,7 +52,6 @@ function update(req, res){
 
 module.exports = {
   create: create,
-  show: show,
   destroy: destroy,
   update: update
 };

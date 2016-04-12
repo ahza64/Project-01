@@ -33,8 +33,6 @@ app.get('/api/projects', controllers.projects.index);
 app.post('/api/projects', controllers.projects.create);
 // delete project
 app.delete('/api/projects/:id', controllers.projects.destroy);
-// get a single project
-app.get('/api/projects/:project_id', controllers.projects.show);
 
 // create member
 app.post('/api/projects/:project_id/members', controllers.members.create);
