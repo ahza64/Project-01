@@ -1,12 +1,11 @@
-Probuidler: A simple way to track your project members in motion
+Probuidler: A simple way to track your project and members in motion
 
 
 Here, you and your team members will be able to post, delete and update projects,
 their descriptions, members and member tasks. You'll even be able to link a url
-to an image to beautifully display your project in the background of the project's
-post. With very fast and easy implementation, we can alter the proBuilder to your companies theme.
+to an image to beautifully display your project in the background of the project's post. With very fast and easy implementation, we can alter the proBuilder to your companies theme.
 
-take a quick look at proBuilder being currently utilized
+take a quick look at proBuilder currently being utilized
 http://wntprojects.herokuapp.com/
 
 To get this smooth running app deployed, I incorporated technologies such as:
