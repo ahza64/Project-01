@@ -85,8 +85,8 @@ function projectsLoadSuccess(json){
   json.forEach(function(project){
     renderHandlebars(project);
   });
-  var saw = new Audio('audio/saw.mp3');
-  saw.play();
+  var tapeMeasure = new Audio('audio/tape.mp3');
+  tapeMeasure.play();
 }
 function projectsLoadError(err){
   console.log("projectLosdError return ", err);

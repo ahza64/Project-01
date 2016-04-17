@@ -13,7 +13,7 @@
 
     <script src="/scripts/app.js"></script>
   </head>
-  <body>
+  <body class="background">
     <div class="jumbotron">
       <div class="container">
         <div class="row">
@@ -61,56 +61,64 @@
     </div>
 <!-- start project section -->
 <script id='projectTemplate' type="text/x-handlebars-template">
-  <div id={{_id}} class="col-xs-6" style="background:linear-gradient(rgba(255, 255, 255, 0.7),rgba(255, 255, 255, 0.7)),url({{image}})">
-    <hr>
-    <p>
-      Project: {{projectName}}
-    </p>
-    <p>
-      Creator: {{owner}}
-    </p>
-    <p>
-      Lead: {{lead}}
-    </p>
-    <p>
-      {{desc}}
-    </p>
-      <!-- <image width="50" height="50" src={{image}} frameborder="0"> -->
-        <!--  <iframe width="200" height="200" src="{{link}}" frameborder="0"></iframe>
-        <br> -->
-        <button type="button" id="projectDelete" name="button" class="deleteBtn btn btn-danger" data-id={{_id}}>Delete Project</button>
-      <form class="form-inline" id="newMemberForm" data-id={{_id}}>
+  <div id={{_id}} class="col-xs-6">
+    <div class="col-xs-12" style="
+        margin: 12px;
+        border-radius: 30px;
+        background:radial-gradient(rgba(255, 255, 255, 0),rgba(255, 255, 255, 1.0)),
+        url({{image}});">
+      <div class="padding">
+        <hr>
+        <p>
+          Project: {{projectName}}
+        </p>
+        <p>
+          Creator: {{owner}}
+        </p>
+        <p>
+          Lead: {{lead}}
+        </p>
+        <p>
+          {{desc}}
+        </p>
         <div class="form-group">
-          <input type="text" class="form-control" name="memberName" placeholder="Member Name">
+          <button type="button" id="projectDelete" name="button" class="deleteBtn btn btn-danger" data-id={{_id}}>Delete Project</button>
         </div>
-        <div class="form-group">
-          <input type="text" class="form-control" name="task" placeholder="Member Task">
+          <form class="form-inlines" id="newMemberForm" data-id={{_id}}>
+            <div class="form-group">
+              <input type="text" class="form-control" name="memberName" placeholder="Member Name">
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" name="task" placeholder="Member Task">
+            </div>
+            <button type="submit" class="btn btn-primary">Add Member</button>
+          </form>
+          <p>
+            {{#each members}}
+              <div id={{_id}}>
+                <p>
+                  <form class="form-inline" id="updateMemberForm" data-member-id={{_id}}>
+                    Member: {{memberName}}
+                    <div class="form-group">
+                      Task::::: <input type="text" class="form-control" name="task" value="{{task}}" placeholder="Member Task">
+                    </div>
+                    <button type="submit" class="btn btn-info">Update Task</button>
+                    <button type="button" name="button" class="deleteBtn memberDelete btn btn-danger" data-member-id={{_id}} data-project-id={{../_id}}>Delete Member</button>
+                  </form>
+                </p>
+              </div>
+            {{/each}}
+          </p>
         </div>
-        <button type="submit" class="btn btn-primary">Add Member</button>
-      </form>
-      <p>
-        {{#each members}}
-          <div id={{_id}}>
-            <p>
-              <form class="form-inline" id="updateMemberForm" data-member-id={{_id}}>
-                Member: {{memberName}}
-                <div class="form-group">
-                  Task::::: <input type="text" class="form-control" name="task" value="{{task}}" placeholder="Member Task">
-                </div>
-                <button type="submit" class="btn btn-info">Update Task</button>
-                <button type="button" name="button" class="deleteBtn memberDelete btn btn-danger" data-member-id={{_id}} data-project-id={{../_id}}>Delete Member</button>
-              </form>
-            </p>
-          </div>
-        {{/each}}
-      </p>
+      </div>
     </div>
   </script>
-  <div class="container">
-    <div id='projectTarget' class="row">
+  <div class="container-fluid">
+    <div id='projectTarget' class="wrap row">
       <!--handlebars go here-->
     </div>
   </div>
+
 <!-- end project section -->
   </body>
 </html>

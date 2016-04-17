@@ -1,8 +1,9 @@
+
 .jumbotron {
   background:
     linear-gradient(
-      rgba(0, 0, 0, 0.3),
-      rgba(0, 0, 0, 0.3)
+      rgba(0, 0, 0, 0.2),
+      rgba(0, 0, 0, 0.2)
     ),
     url(/images/project.jpg);
   background-size: cover;
@@ -10,6 +11,13 @@
   background-color: rbga(0, 0, 0, 0);
   color: #EEE;
 }
-.shade {
-  background-color: rbga(0, 0, 0, 1);
+.wrap{
+  display: flex;
+  flex-wrap: wrap;
+}
+.padding{
+  padding: 20px;
+}
+.background{
+  background-color: maroon;
 }
