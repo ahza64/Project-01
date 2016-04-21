@@ -67,7 +67,7 @@ $(document).ready(function() {
   $('#projectTarget').on('submit', '#updateMemberForm', function(e){
     e.preventDefault();
     var $memberUpdate = $(this).attr('data-member-id');
-    var $project = this.parentElement.parentElement.id;
+    var $project = $(this).attr('data-project-id');
     $.ajax({
       method: "PUT",
       url: "api/projects/"+$project+"/members/"+$memberUpdate,

@@ -1,4 +1,3 @@
-
 .jumbotron {
   background:
     linear-gradient(
@@ -10,6 +9,7 @@
   background-repeat: no-repeat;
   background-color: rbga(0, 0, 0, 0);
   color: #EEE;
+
 }
 .wrap{
   display: flex;
@@ -20,4 +20,10 @@
 }
 .background{
   background-color: maroon;
+}
+.embiggen{
+  text-align: center;
+}
+.container{
+  margin: atuo 0;
 }
