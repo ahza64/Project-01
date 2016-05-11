@@ -5,6 +5,8 @@
 $(document).ready(function() {
   console.log("JS is definitely working, and document is loaded");
 
+  $('.hide').hide();
+
 // rendering all projects on the page
   $.ajax({
     method: "GET",
@@ -63,11 +65,21 @@ $(document).ready(function() {
     });
   });
 
+  // open forms
+    // $('#projectTarget').on('click', '#updateMemberForm', function(e){
+    //   e.preventDefault();
+    //   console.log(this.childElement);
+    //   $('#'+this.childElement).show();
+    //   $('.show').hide();
+    // });
+
 // update member
   $('#projectTarget').on('submit', '#updateMemberForm', function(e){
     e.preventDefault();
     var $memberUpdate = $(this).attr('data-member-id');
     var $project = $(this).attr('data-project-id');
+    $('.hide').show();
+    $('.show').hide();
     $.ajax({
       method: "PUT",
       url: "api/projects/"+$project+"/members/"+$memberUpdate,
@@ -85,14 +97,14 @@ function projectsLoadSuccess(json){
   json.forEach(function(project){
     renderHandlebars(project);
   });
-  var tapeMeasure = new Audio('audio/tape.mp3');
-  tapeMeasure.play();
 }
 function projectsLoadError(err){
   console.log("projectLosdError return ", err);
 }
 // project post
 function projectPostSuccess(json){
+  var tapeMeasure = new Audio('audio/tape.mp3');
+  tapeMeasure.play();
   console.log("project ", json);
   renderHandlebars(json);
 }
@@ -143,6 +155,6 @@ function renderHandlebars(json, projectPos) {
   }else if(projectPos !== undefined){
     $(html).insertAfter($('#projectTarget').children().eq(projectPos-1));
   }else{
-  $('#projectTarget').append(html);
+    $('#projectTarget').append(html);
   }
 }

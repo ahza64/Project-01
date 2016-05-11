@@ -22,7 +22,7 @@
             <p>The hub for your projects in motion</p>
           </div>
 
-<!-- start project from       -->
+<!-- start project form -->
 
           <div class="col-xs-offset-1 col-xs-5">
             <form class="form-inline" id="newProjectForm">
@@ -110,24 +110,28 @@
         </form>
         <p>
           {{#each members}}
-              <hr>
               <div id={{_id}}>
+                <hr>
+                <form class="" id="updateMemberForm" data-member-id={{_id}} data-project-id={{../_id}}>
                 <p>
-                  <form class="" id="updateMemberForm" data-member-id={{_id}} data-project-id={{../_id}}>
-                    <p>
+                  <p>
                       Member: {{memberName}}
-                      <div class="form-group">
-                        Task::::: <input type="text" class="form-control" name="task" value="{{task}}" placeholder="Member Task">
+                    <div class="form-group">
+                      Task::::: {{task}}
+                    </div>
+                      <div class="">
+                        <input type="text" class="form-control " name="task" value="{{task}}" placeholder="Member Task">
+                        <button type="submit" class="btn btn-info" data-member-id={{_id}} data-project-id={{../_id}}><span class="glyphicon glyphicon-pencil"></span> Save New Task</button>
                       </div>
-                    </p>
-                    <div class="form-group">
-                      <button type="submit" class="btn btn-info" data-member-id={{_id}} data-project-id={{../_id}}><span class="glyphicon glyphicon-pencil"></span> Update Task</button>
-                    </div>
-                    <div class="form-group">
-                      <button type="button" name="button" class="deleteBtn memberDelete btn btn-danger" data-member-id={{_id}} data-project-id={{../_id}}><span class="glyphicon glyphicon-trash"></span> Delete Member</button>
-                    </div>
-                  </form>
+                  </p>
+                  <div class="form-group show">
+                    <button id="{{_id}}" type="button" class="btn btn-info" data-member-id={{_id}} data-project-id={{../_id}}><span class="glyphicon glyphicon-pencil"></span> Update Task</button>
+                  </div>
+                  <div class="form-group">
+                    <button type="button" name="button" class="deleteBtn memberDelete btn btn-danger" data-member-id={{_id}} data-project-id={{../_id}}><span class="glyphicon glyphicon-trash"></span> Delete Member</button>
+                  </div>
                 </p>
+              </form>
               </div>
           {{/each}}
         </p>
@@ -141,6 +145,5 @@
     </div>
   </div>
 
-<!-- end project section -->
   </body>
 </html>
