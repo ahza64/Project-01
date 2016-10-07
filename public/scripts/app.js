@@ -150,6 +150,7 @@ function renderHandlebars(json, projectPos) {
   var gettingHTML = $('#projectTemplate').html();
   var projectTemplate = Handlebars.compile(gettingHTML);
   var html = projectTemplate(json);
+  //this part of my code is the direct DOM manipulation without client side data
   if(projectPos === 0){
     $('#projectTarget').prepend(html);
   }else if(projectPos !== undefined){
