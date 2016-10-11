@@ -1,5 +1,6 @@
 Probuidler: A simple way to track your project and members in motion
 
+Interesting tech: To practice not storing client side data, I used pure jQuery DOM manipulation to track front end data. I also chose to use NoSQL embedded data for the member objects.
 
 Here, you and your team members will be able to post, delete and update projects,
 their descriptions, members and member tasks. You'll even be able to link a url
@@ -16,9 +17,8 @@ To get this smooth running app deployed, I incorporated technologies such as:
 -handlebars
 -and of course the ever pervasive HTML, CSS and bootstrap
 
-The main features this app provides can be inducive to just about any multi-person
-project. Here, you will be able to:
-  -post new projects that include parameters
+The main features this app provides can be inducive to just about any multi-person project. Here, you will be able to:
+    -post new projects that include parameters
     -project name
     -owner/creator
     -lead
@@ -28,8 +28,3 @@ After the project is created, you can create members that can have:
   -member name
   -member task
 the member tasks can be updated and individual projects and members can be removed.
-
-
-In the near future authorization will be put in place, so only owners can create and delete projects and members.
-
-(/public/images/Project_Builder.png)
