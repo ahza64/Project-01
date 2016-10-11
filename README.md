@@ -1,6 +1,6 @@
 Probuidler: A simple way to track your project and members in motion
 
-Interesting tech: To practice not storing client side data, I used pure jQuery DOM manipulation to track front end data. I also chose to use NoSQL embedded data for the member objects.
+Above and Beyond: To practice not storing client side data, I used pure jQuery DOM manipulation to track front end data. I also chose to use NoSQL embedded data for the member objects.
 
 Here, you and your team members will be able to post, delete and update projects,
 their descriptions, members and member tasks. You'll even be able to link a url
